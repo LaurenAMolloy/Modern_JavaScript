@@ -186,4 +186,46 @@ console.log(genderedAnimals[1][0]);
 
 //Nested or multidimensional arrays are better for games or boards such as tic tac toe
 
+//An array is a structure that hold more than one value
+//An array is declared in the same way as a variable using let or const followed by square brackets
+//Each item is called an element
+//Arrays are index based and always start at 0
+//You can access the elements using square brackets
+
+let fruits = ["apple", "orange", "banana"];
+
+fruits.sort();
+
+// for(let i = fruits.length - 1; i >= 0; i--){
+//     console.log(fruits[i])
+// }
+
+// for(let fruit of fruits){
+//     console.log(fruit);
+// }
+
+
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+//This will result in undefined since there is no element as index 3
+console.log(fruits[3]);
+
+fruits[0] = "pineapple";
+fruits[1] = "coconut";
+
+//add at the end
+fruits.push("kiwi");
+//remove from the end
+fruits.pop("mango");
+//Add to the start
+fruits.unshift("watermelon");
+//Remove from the start
+fruits.shift();
+
+let numOfFruits = fruits.length;
+console.log("Number of fruits in this array is", numOfFruits);
+
+let index = fruits.indexOf("coconut");
+console.log("Index of coconut is",index);
 

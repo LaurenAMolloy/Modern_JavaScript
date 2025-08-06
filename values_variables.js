@@ -97,3 +97,22 @@ wind_speed += 5;
 wind_speed --
 //80
 
+//Bro Code
+//A variable that can't be changed once you assign it a value!
+//Turn any variable that should not be changed to const
+//Primitive data types such as numbers can be declared with uppercase
+const PI = 3.14159;
+let radius;
+let circumference;
+
+//radius = prompt("Enter the size of your cicrle");
+// radius = Number(radius);
+// circumference = 2 * PI * radius;
+// console.log(Math.floor(circumference));
+
+document.getElementById("mySubmit").onclick = function(){
+    radius = document.getElementById("myText").value;
+    radius = Number(radius);
+    circumference = 2 * PI * radius;
+    document.getElementById("myH3").textContent = circumference + "cm";
+}
