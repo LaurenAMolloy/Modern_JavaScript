@@ -22,3 +22,14 @@
 .buttons:hover {
     background-color: blue;
 }
+
+.checkBoxContainer {
+    font-family: Helvetica;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: black solid 1px;
+}
+
+#mySubmit {
+    font-size: 1em;
+}

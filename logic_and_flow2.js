@@ -277,7 +277,15 @@ luckyNum === 7 ? console.log("Lucky") : console.log("Not Lucky");
 //Assign Ternary to a variable
 let statu = "offline";
 
-let color1 = statu === "offline" ? "red": "green"
+let color1 = statu === "offline" ? "red": "green";
+
+//ternary operator
+//A short cut to if else statements helps to assign a variable based on a condition ? codeIfTrue : codeIfFalse
+
+let drink = "tea";
+
+drink = "tea" ? console.log("One lump or two"):console.log("Do you want ice with that?");
+
 
 
 
