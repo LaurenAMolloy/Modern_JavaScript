@@ -11,8 +11,8 @@ const gameScore2 = 0;
 
 //How does JavaScript handle string + number (e.g., "4" + 2)?
 
-const age = "4" + 2;
-console.log(age);
+// const age = "4" + 2;
+// console.log(age);
 
 // What does .slice(1, 4) do?
 
@@ -55,3 +55,66 @@ chocolate.push("kitkat");
 // What happens when you assign one array to another?
 
 // Can you modify a const array?
+
+//What is a for...of loop?
+//What is it used for?
+//Can we use a for...of loop with an array?
+//Can we use a for...of loop with an object?
+// const iceCreamFlavour = ["Vanilla", "Chocolate", "Strawberry"];
+// for(let flavour of iceCreamFlavour){
+//     console.log(flavour);
+// }
+
+// const iceCreams = 
+//     { 
+//         flavor1: "Vanilla",
+//         flavor2: "Chocolate" ,
+//         flavor3: "Strawberry",
+//     };
+
+//Object Entries
+// for(let iceCream of Object.entries(iceCreams)){
+//     console.log(iceCream);
+// }
+// for(let iceCream of Object.keys(iceCreams)){
+//     console.log(iceCream);
+// }
+// for(let iceCream of Object.values(iceCreams)){
+//     console.log(iceCream);
+// }
+
+//For in loop
+
+const iceCreams = 
+    { 
+        flavor1: "Vanilla",
+        flavor2: "Chocolate" ,
+        flavor3: "Strawberry",
+    };
+
+for(let iceCream in iceCreams){
+    console.log(iceCream, iceCreams[iceCream]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
