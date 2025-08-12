@@ -115,6 +115,7 @@ animals.splice(3,2);
 
 //sort - sorts an array
 //Sorts in Place
+
 let bands = ["QUEEN","ROLLING STONES", "ABBA", "BONEY M", "FLEETWOOD MAC", "BEATLES"];
 console.log(bands.sort());
 

@@ -96,8 +96,43 @@ for(let iceCream in iceCreams){
     console.log(iceCream, iceCreams[iceCream]);
 }
 
+//Return an object with random keys and values
+// const fruits = ["mango", "plum", "kiwi", "dragonfruit", "pomegranate", "lychee"];
+// const verbs = ["blitz", "dash", "slam", "smash", "hurl", "whirl"];
 
+// //This function gives us a random index to retrieve 
+// //an element from the array
+// function randomGenerator(arr) { 
+//     const idx = Math.floor(Math.random() * arr.length);
+//     return arr[idx];
+// }
 
+// function getRandomMocktail(){
+//    return {
+//     fruit: randomGenerator(fruits),
+//     verb: randomGenerator(verbs)
+//    };
+// }
+// console.log(randomGenerator(fruits));
+// console.log(randomGenerator(verbs));
+// console.log(getRandomMocktail());
+
+const flavors = ["vanilla", "chocolate", "strawberry", "caramel", "hazelnut", "mint"];
+const dessertNouns = ["crumble", "swirl", "chunk", "drizzle", "bite", "twist"];
+
+function getRandom(arr){
+    const idx = Math.floor(Math.random() * arr.length);
+    return arr[idx];
+}
+//console.log(getRandom(sweetAdjectives));
+function cookieMaker(){
+    return {
+        adjective: getRandom(flavors),
+        noun: getRandom(dessertNouns),
+    }
+}
+
+console.log(cookieMaker());
 
 
 

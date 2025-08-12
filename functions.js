@@ -203,24 +203,404 @@ console.log(isPangram("Six big devils from Japan quickly forgot how to waltz."))
 //Challenge 4 - Get Card
 //Pick a random value
 //Pick a random suit
+const values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q", "A"];
+
+const suit = ["clubs", "hearts", "diamonds", "spades"];
+
+function getRandom(arr){
+    const idx = Math.floor(Math.random() * arr.length);
+    //Look up the value at the key of idx
+    return arr[idx];
+}
 
 function getCard() {
-const values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q", "A"];
-const idx = Math.floor(Math.random() * values.length);
-const suit = ["clubs", "hearts", "diamonds", "spades"];
 return {
     value: getRandom(values),
-    suits: getRandom(suit),
+    suit: getRandom(suit),
     }
 };
 
-function getRandom(arr){
-    const idx = Math.floor(Math.random * arr.length);
-    //Look up the value at the key of idx
-    return arr[idx]
+console.log(getCard());
+
+//Function Scope
+//Scope is like visibility
+//When you declare a variable in a function
+//IT IS SCOPED TO THAT FUNCTION
+
+function lol(){
+    let person = "Tom";
+    const age = 45;
+    var color = "teal";
+}
+//This logs as undefined as it is outside the scope of lol
+//console.log(person, age, color);
+
+function changeColor(){
+    let color = "purple";
+    const age = 42;
+}
+//When we log out this function we will see that age returns two variables that are each scoped to that partcular function
+
+lol();
+changeColor();
+
+
+//Here we have two scopes
+let bird = "mandarin duck";
+
+function birdWatch(){
+    let bird = "golden pheasant";
+    console.log(bird)
 }
 
-console.log(getCard());
+birdWatch();
+console.log(bird);
+
+//How does let and const behave in different scenarios?
+
+//Block Scope
+
+//Animal is block scoped
+if(true){
+    let animal = "eel";
+}
+//Animal is block scoped - not defined outside
+//if we used var it would work in both cases
+//Let and scope have different scoping rules than var
+//console.log(animal);
+
+//In this case i is not scoped
+let bears = ["paddington", "baloo", "winnie"];
+var i = 10;
+for(var i = 0; i < bears.length; i++){
+    console.log(i, bears[i]);
+}
+console.log(i);
+
+//variables here are function scoped
+//variables here are block scoped
+function doubleArr(arr){
+    const results = [];
+    for(let num of arr){
+    let double = num * 2;
+    results.push(double);
+    }
+    return results;
+}
+
+//let, const and var are three ways to declare a variable
+//let and const cannot be redefined in the same block
+
+//Lexical Scope -Examples
+
+function outer() {
+    let hero = "Black Panther";
+
+    function inner() {
+        let cryForHelp = `${hero}, please save me!`
+        console.log(cryForHelp);
+
+    }
+    inner();
+}
+
+//In this example if we call inner from outside outer 
+//the function is undefined, we don't have access to it
+//Unless we return the function
+//We must call outer to access the function inner
+//Nested functions are lexically bound
+
+//Movie is defined in outer
+//Then we call inner
+//Movie is redefined in inner
+//If no variable is found within inner
+//The function will look outside of the function 
+//to the near value;
+
+function outer(){
+    let movie = "Lilo and Stitch";
+
+    function inner(){
+        let movie = "Encanto"
+        console.log(movie.toUpperCase());
+    }
+    inner();
+}
+
+//Later in React you will have components functions that return other functions
+//Example
+function TodoList(){
+    let todos = [];
+    let userName = "";
+
+    function addTodo(){
+
+    }
+
+    function removeTodo(){
+
+    }
+}
+
+//Function Expressions
+//Aother way of defining a function
+//Key difference
+//Stored in a variable
+//How does this work?
+//Functions are Objects
+
+const square2 = function(num){
+    num * num;
+}
+
+function subtract(x, y){
+    return x + y;
+}
+
+//Functions are objects
+//So we can store them in a variable
+const subtract2 = function (x, y) {
+    return x + y;
+};
+
+//We can call this using product
+//We can give it a name
+const product = function multiply(x, y) {
+    return x * y;
+};
+
+//Anonymous Function
+// function (x, y) {
+//     return x + y;
+// }
+
+//There is alot that we can do because functions are objects
+//Function are Objects!
+//We can store functions in an array
+
+function add3(x, y){
+    return x + y;
+}
+
+const subtract4 = function (x, y) {
+    return x - y;
+}
+const multiply = function (x, y) {
+    return x * y;
+}
+
+const divide2 = function (x, y) {
+    return x / y;
+}
+
+const operations = [ add, subtract4, multiply, divide];
+
+for(let func of operations){
+    //execute each function using 30 and 5
+    let result = func(30, 5);
+    console.log(result);
+    //35
+    //25
+    //150
+    //6
+}
+
+//we can call this by writing thing.doSomething(3, 5)
+//This is a method
+//Adding a function to an object we create a method
+const thing = {
+    doSomething: multiply,
+}
+
+//Functions as arguments
+//High Order Functions
+//Functions that work with other functions
+
+//A function that accepts a function as arguments
+
+function callTwice(func){
+    func();
+    func();
+}
+
+function callThreeTimes(f) {
+    f();
+    f();
+    f();
+}
+
+function happy() {
+    console.log("I feel happy");
+}
+
+function joy() {
+    console.log("I feel joyful");
+}
+
+//Here is another example
+function repeatNTimes(func, num) {
+ for(let i = 0; i < num; i++){
+    func();
+ }
+}
+
+//repeatNTimes(happy, 5);
+
+function pickOne(f1, f2){
+    let rand = Math.random();
+    if(rand < 0.5){
+        f1();
+    } else {
+        f2();
+    }
+}
+
+pickOne(happy, joy);
+
+//Functions as return values
+//Function factories
+//A nested function has access to the scope 
+//of its parents function.
+//This means it had access to the varaibles of the outer function
+//This is also known as a closure
+
+function multiplyBy(num) {
+    return function(x){
+        return x * num
+    }
+};
+
+const triple = multiplyBy(3);
+const double = multiplyBy(2);
+const halve = multiplyBy(0.5);
+
+function makeBetweenFunc(x, y) {
+    return function(num) {
+        return num >= x && num < y
+    }
+}
+
+// const isChild = function(num){
+//     return num >= 0 && num <=18;
+// }
+//isChild(17);
+
+const isChild = makeBetweenFunc(0, 18);
+const isNineties = makeBetweenFunc(1990, 2000);
+
+const isHot = makeBetweenFunc(25, 40);
+
+//Greeting Factory Example
+function makeGreeter(language) {
+    return function(name) {
+        if (language === "en") {
+            return `Hello, ${name}!`;
+        } else if (language === "es") {
+            return `¡Hola, ${name}!`;
+        } else if (language === "fr") {
+            return `Bonjour, ${name}!`;
+        } else {
+            return `Hi, ${name}!`; // default
+        }
+    }
+}
+
+const greetInEnglish = makeGreeter("en");
+const greetInSpanish = makeGreeter("es");
+const greetInFrench = makeGreeter("fr");
+
+console.log(greetInEnglish("Alice")); // "Hello, Alice!"
+console.log(greetInSpanish("Bob"));   // "¡Hola, Bob!"
+console.log(greetInFrench("Claire")); // "Bonjour, Claire!"
+
+//Make exclaimer Factory
+//1. Punctuation Mark stored in the variable punc
+//2. Factory returns a new function
+//3. Convert word to array
+//4. push exclamation to array
+//6. join array with punctuation added
+//7. Return new 
+
+//This is the tool that adds ! to things
+function makeExclaimer(punc){
+    return function(string) {
+        let word = string.split("");
+        word.push(punc);
+        let puncAdded = word.join("");
+        console.log(puncAdded);
+        return puncAdded;
+    }
+}
+
+//Shorter version using string concat
+// function makeExclaimer(punc) {
+//     return function(string) {
+//         const result = string + punc;
+//         console.log(result);
+//         return result;
+//     }
+// }
+
+const addExclamation = makeExclaimer("!");
+//Use the tool to add hello
+addExclamation("Hello");
+const addQuestionMark = makeExclaimer("?");
+addQuestionMark("Why");
+
+//Callbacks Intro
+//Call back functions are functions that are 
+//passed to another function and
+//called within that function
+//We often use anonymous functions instead of a named function
+function grumpy(){
+    console.log("I am grumpy")
+}
+//Expects a function
+setTimeout(grumpy, 5000);
+
+// //This is an eaxmple of passing an anonymous
+// setTimeout(function() {
+//     alert("Welcome")
+// }, 5000);
+
+//Using an anonymous function as a callback
+const btn = document.querySelector(".dontClick");
+btn.addEventListener("click", function(){
+    alert("Why did you click me?")
+})
+
+
+//Hoisting - A quirk of JavaScript
+//If I log this before declaration I get undefined
+//Make sure you declare your variable before using them
+console.log(animal);
+var animal = "camel";
+
+
+//If we do the same thing with let and const we get a reference error
+//Let and const variables are not hoisted
+//console.log(bear);
+let bear = "Polar Bear";
+console.log(bear);
+
+console
+const fish = "Clown Fish";
+console.log(fish);
+
+//Function declarations are hoisted!
+howl();
+function howl(){
+    console.log("awooooo")
+}
+
+//Function expressions are not hoisted
+//Although the variable does exist
+//It knows there is a variable 
+//But the value in not known
+var hoot = function(){
+    console.log("Hooo Hoooo")
+}
+
 
 
 

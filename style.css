@@ -1,5 +1,7 @@
-#myH1 {
-    margin-top: 10rem;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #countLabel {
@@ -36,4 +38,33 @@
 
 #mySubmit {
     font-size: 1em;
+}
+
+#radius {
+    border: 2px solid rgb(147, 147, 227);
+    padding: 2rem;
+    background-color: palegreen;
+    margin-top: 2rem;
+    width: 90%;
+}
+
+
+.counter {
+    border: 2px solid rgb(147, 147, 227);
+    padding: 2rem;
+    background-color: aquamarine;
+    margin-top: 2rem;
+    width: 90%;
+}
+
+#checkbox {
+    border: 2px solid rgb(147, 147, 227);
+    padding: 2rem;
+    background-color: paleturquoise;
+    margin-top: 2rem;
+    width: 90%;
+}
+
+.dontClick {
+    width: 50%;
 }
