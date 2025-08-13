@@ -547,6 +547,19 @@ addExclamation("Hello");
 const addQuestionMark = makeExclaimer("?");
 addQuestionMark("Why");
 
+//Ends with 
+function endsWith(lastChar){
+    //last char is remembered in the closure
+    return function(string) {
+        if(string[string.length -1] === lastChar){
+            console.log("Match")
+        }
+    }
+}
+
+const endWith0 = endsWith("o");
+endWith0("HELLO")
+
 //Callbacks Intro
 //Call back functions are functions that are 
 //passed to another function and
