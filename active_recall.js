@@ -93,7 +93,7 @@ const iceCreams =
     };
 
 for(let iceCream in iceCreams){
-    console.log(iceCream, iceCreams[iceCream]);
+    //console.log(iceCream, iceCreams[iceCream]);
 }
 
 //Return an object with random keys and values
@@ -132,7 +132,30 @@ function cookieMaker(){
     }
 }
 
-console.log(cookieMaker());
+//console.log(cookieMaker());
+
+//Closures
+//What is a closure?
+//When and why would we use it?
+
+function createCookieJar(){
+    let cookie = 0;
+
+    function addCookie(){
+        cookie ++;
+        console.log(cookie);
+    }
+
+    addCookie();
+}
+
+createCookieJar();
+
+
+
+
+
+
 
 
 
