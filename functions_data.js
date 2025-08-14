@@ -351,4 +351,130 @@ const deSort = prices.sort((a,b) => b - a);
 //HOW CAN WE COMPARE THEM?
 const sortRating = books.sort((a,b) => a.pages - b.pages);
 
-//Reduce
+// Reducer
+// Reduce is tricky to explain
+// It is very useful and versatile
+// Why is it callled reduce?
+// Takes an array of values
+// Reduces it down to a single value
+// Used for summing values from an array
+
+// Reduce is a call back that takes two params
+// acculator or total
+// currentValue - each element
+// acc default value will be the first item in the array
+
+const reduceNums = [3, 4, 5, 6, 7];
+const product = reduceNums.reduce((total, currVal) => {
+    return total * currVal
+}); //2520
+
+//Reduce 
+//We don't need to add or multiply 
+//We can use it to track a value
+let grades = [85, 92, 78, 90, 88, 76, 95, 89];
+
+const max = grades.reduce((max, curr) => {
+    if(curr > max) return curr;
+    return max;
+});
+
+//Reduce another way
+const mathMax = grades.reduce((max, curr) => { return Math.max(max, curr)
+});
+
+const mathMin = grades.reduce((min, curr) => { return Math.min(min, curr)
+});
+
+//Initial Value
+//After the callback you can add a third value
+//Using 0 will give us the same result
+//If we use 1000 that is where the value will start
+const iniVal = [10, 20, 30, 40, 50].reduce((sum, curr) => {
+    return sum + curr
+}, 0);
+
+//Even more reduce!
+//Tallying
+// Example array of letters
+let letters = ['A', 'B', 'A', 'C', 'B', 'A', 'D', 'C', 'B', 'A', 'D', 'C', 'B', 'A', 'C'];
+
+// Use reduce to tally the counts of each letter
+const result = letters.reduce((tally, val) => {
+    // If the letter already exists in the tally, increment its count
+    if(tally[val]) {
+        tally[val]++;
+    } else {
+        // If the letter is not in the tally yet, start with 1
+        tally[val] = 1;
+    }
+    return tally; // Return the updated tally for the next iteration
+}, {}); // Start with an empty object
+
+console.log(result);
+// Output: { A: 5, B: 4, C: 4, D: 2 }
+
+/* 
+Explanation:
+
+1. `reduce` goes through each item in the array and builds a single result object (`tally`).
+2. `val` is the current letter being checked.
+3. `tally[val]` checks if this letter already has a count:
+   - If yes, increase the count by 1.
+   - If no, set the count to 1.
+4. Return the tally so the next letter can use it.
+5. At the end, `result` has the total count of each letter.
+
+Step-by-step example:
+
+Start with: tally = {}
+
+['A'] -> { A: 1 }
+['B'] -> { A: 1, B: 1 }
+['A'] -> { A: 2, B: 1 }
+['C'] -> { A: 2, B: 1, C: 1 }
+['B'] -> { A: 2, B: 2, C: 1 }
+['A'] -> { A: 3, B: 2, C: 1 }
+['D'] -> { A: 3, B: 2, C: 1, D: 1 }
+['C'] -> { A: 3, B: 2, C: 2, D: 1 }
+['B'] -> { A: 3, B: 3, C: 2, D: 1 }
+['A'] -> { A: 4, B: 3, C: 2, D: 1 }
+['D'] -> { A: 4, B: 3, C: 2, D: 2 }
+['C'] -> { A: 4, B: 3, C: 3, D: 2 }
+['B'] -> { A: 4, B: 4, C: 3, D: 2 }
+['A'] -> { A: 5, B: 4, C: 3, D: 2 }
+['C'] -> { A: 5, B: 4, C: 4, D: 2 }
+
+Final result: { A: 5, B: 4, C: 4, D: 2 }
+*/
+
+//Shorter way
+const shortResults = letters.reduce((tally, val) => {
+    //tally of val or 0
+    //If something exists add one
+    tally[val] = (tally[val] || 0) + 1;
+    return tally;
+}, {});
+
+//Reduce by Rating
+let booksRated = [
+    { title: "The Hobbit", author: "J.R.R. Tolkien", rating: 4.8 },
+    { title: "1984", author: "George Orwell", rating: 4.7 },
+    { title: "To Kill a Mockingbird", author: "Harper Lee", rating: 4.9 },
+    { title: "The Catcher in the Rye", author: "J.D. Salinger", rating: 4.2 },
+    { title: "Pride and Prejudice", author: "Jane Austen", rating: 4.6 },
+    { title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling", rating: 4.9 },
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", rating: 4.4 },
+    { title: "Some Terrible Book", author: "Unknown Author", rating: 1.0 } // very bad rating
+];
+
+const groupRating = booksRated.reduce((groupedBooks, book) => {
+    //Set the rating as a key like 3, 4 etc
+    const key = Math.floor(book.rating);
+    //if there is no key of 4 create an array with that key. The number is the key and the array is the value
+    if(!groupedBooks[key]) groupedBooks[key] = [];
+    groupedBooks[key].push(book);
+    return groupedBooks;
+}, {});
+
+
