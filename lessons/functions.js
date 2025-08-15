@@ -560,6 +560,32 @@ function endsWith(lastChar){
 const endWith0 = endsWith("o");
 endWith0("HELLO")
 
+//A closure maintains the state of a variable and makes it private
+//If we do not use a closure every time run increment we reset count to Zero
+
+function createCounter() {
+    let count = 0;
+
+    function increment() {
+        count ++;
+        console.log(`Count = ${count}`)
+    }
+    //we return an object with a method of increment
+    //return {increment};
+
+    function getCount(){
+        return count;
+    }
+
+    return {increment, getCount}
+}
+
+const counter = createCounter();
+//Take counter and use increment methods
+counter.increment();
+counter.increment();
+console.log(`Current count = ${counter.getCount()}`);
+
 //Callbacks Intro
 //Call back functions are functions that are 
 //passed to another function and
