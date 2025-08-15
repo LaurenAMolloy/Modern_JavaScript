@@ -13,6 +13,7 @@
 
 // Objects
 // import './lessons/objects.js';
+//import './lessons/objects_methods.js';
 
 // Functions
 // import './lessons/functions.js';
@@ -31,7 +32,6 @@
 // Miscellaneous
 // import './lessons/misc.js';
 // import './lessons/active_recall.js';
-
 
 // ========================
 // Example of importing data files
