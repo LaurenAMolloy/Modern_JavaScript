@@ -151,6 +151,152 @@ function createCookieJar(){
 
 createCookieJar();
 
+//Filter
+//Filters elements and creates a new array
+let numbers = [1, 2, 3, 4, 5, 6, 7];
+let evenNums = numbers.filter(isEven);
+console.log(evenNums);
+
+let oddNums = numbers.filter(isOdd);
+console.log(oddNums);
+
+//Returns a boolean 
+function isEven(element) {
+    return element % 2 === 0;
+}
+function isOdd(element) {
+    return element % 2 !== 0;
+}
+
+//Find Adults
+const ages = [16, 17, 18, 18, 19, 20, 60];
+let adults = ages.filter(findAdults);
+let children = ages.filter(findChildren);
+console.log(adults);
+console.log(children);
+
+function findAdults(element) {
+    return element >= 18
+}
+function findChildren(element) {
+    return element < 18
+}
+
+const words = ["apple", "orange", "peach", "pear", "kiwi", "pomegranate", "coconut"]
+let shortWords = words.filter(getShortWords);
+console.log(shortWords);
+let longWords = words.filter(getLongWords);
+console.log(longWords);
+
+function getShortWords(element) {
+    return element.length <= 4
+}
+function getLongWords(element) {
+    return element.length <= 6
+}
+//Reduce
+//The dreaded reduce
+//Reduce elements of an array to a single value
+const prices = [5, 30, 10, 25, 15, 20];
+
+const total = prices.reduce((acc, curr) => acc + curr)
+console.log(`Total is ${total}`); //105
+
+//const totals = prices.reduce((prevEl, nextEl) => prevEl + nextEl);
+
+const grades = [75, 50, 90, 80, 65, 95];
+
+const max = grades.reduce((prevEl, nextEl) => 
+Math.max(prevEl, nextEl));
+
+const min = grades.reduce((prevEl, nextEl) => 
+Math.min(prevEl, nextEl));
+
+console.log(`Max is ${max}`);
+console.log(`Min is ${min}`);
+
+//Another way to achieve the same output
+const grades1 = [75, 50, 90, 80, 65, 95];
+
+let max1 = grades[0]; // start with the first element
+let min1 = grades[0];
+
+for (let i = 1; i < grades1.length; i++) {
+  if (grades1[i] > max1) {
+    max1 = grades1[i];
+  }
+  if (grades1[i] < min) {
+    min1 = grades1[i];
+  }
+}
+
+console.log(`Max is ${max1}`);
+console.log(`Min is ${min1}`);
+
+//Using the for of loop 
+const grades2 = [75, 50, 90, 80, 65, 95];
+
+let max2 = grades[0];
+let min2 = grades[0];
+
+for (const grade of grades) {
+  if (grade > max2) {
+    max2 = grade;
+  }
+  if (grade < min2) {
+    min2 = grade;
+  }
+}
+
+console.log(`Max is ${max2}`);
+console.log(`Min is ${min2}`);
+
+//Arrow Function
+//A conscise way to make function expression
+const hello = function(){
+    console.log("Hello")
+};
+
+//Using an arrow function we can create a function expression
+//Remove the function keyword and place a fat arrow after the parens
+//You can add params to an arrow function
+//If you want to return more than one statement you need curly braces
+
+const hi = (name, age) => {console.log(`Hi ${name}`)
+                           console.log(`You are ${age}`)}
+
+hello();
+hi("Lozza", 42);
+
+//Basics of an arrow
+//If there are no parameters we still need parens
+setTimeout( () => console.log("Hola"), 3000);
+
+// function hola() {
+//     console.log("Hola");
+// }
+
+const moreNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//We are using an arrow
+//We have one parameter
+//This is an implicit return
+//If we have only one line of code we don't need a return statement
+//Good for simple functions that you only use once
+const squares = moreNums.map((elem) => elem * elem);
+console.log(squares);
+
+const cubed = moreNums.map((elem) => Math.pow(elem, 3));
+console.log(cubed);
+
+//filter
+const evenStevens = moreNums.filter((elem) => elem % 2 === 0);
+const oddStevens = moreNums.filter((elem) => elem % 2 !== 0);
+
+//Reduce
+const tots = moreNums.reduce((acc, curr) => acc + curr)
+console.log(evenStevens, oddNums, tots);
+//Function Expressions
+//This
 
 
 

@@ -31,7 +31,7 @@
 
 // Miscellaneous
 // import './lessons/misc.js';
-// import './lessons/active_recall.js';
+import './lessons/active_recall.js';
 
 // ========================
 // Example of importing data files
