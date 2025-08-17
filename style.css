@@ -1,8 +1,53 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
     align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #F9F9F7;
 }
+
+h1 {
+    color: #362D2B;
+    font-size: 60px;
+}
+
+.special {
+    color: teal;
+    font-size: 30px;
+    border: 1px solid teal;
+}
+
+.rainbowImg {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+}
+
+.form {
+    width: 100%;
+}
+
+.myForm {
+    background-color: #C2B7AE;
+    padding: 2rem 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"] {
+    width: 75%;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+
+
 
 #countLabel {
     display: block;
@@ -31,9 +76,10 @@ body {
 
 .checkBoxContainer {
     font-family: Helvetica;
-    margin-top: 2rem;
+    margin: 1rem;
     padding: 1rem;
     border: black solid 1px;
+
 }
 
 #mySubmit {
@@ -45,24 +91,26 @@ body {
     padding: 2rem;
     background-color: palegreen;
     margin-top: 2rem;
-    width: 90%;
-}
+    max-width: 90%;
+    margin: 1rem auto;
 
+}
 
 .counter {
     border: 2px solid rgb(147, 147, 227);
     padding: 2rem;
     background-color: aquamarine;
     margin-top: 2rem;
-    width: 90%;
+    max-width: 90%;
+    margin: 1rem auto;
 }
 
 #checkbox {
     border: 2px solid rgb(147, 147, 227);
-    padding: 2rem;
     background-color: paleturquoise;
     margin-top: 2rem;
     width: 90%;
+    margin: 1rem auto;
 }
 
 .dontClick {

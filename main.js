@@ -28,6 +28,7 @@
 // DOM Manipulation
 // import './lessons/checkbox.js';
 // import './lessons/counter.js';
+//import './DOM/DOM_manipulation.js'
 
 // Miscellaneous
 // import './lessons/misc.js';

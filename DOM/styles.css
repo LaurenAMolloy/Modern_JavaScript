@@ -1,0 +1,10 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #240046;
+    background-color: #d0dfff;
+}
+
+#unicornImage {
+    max-width: 100%;
+    height: auto;
+}

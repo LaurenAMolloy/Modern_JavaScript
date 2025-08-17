@@ -142,8 +142,8 @@ fruit = "watermelon";
 let array5 = [1, 2, 3, 4, 5];
 //Other array is pointing to the same address
 //When you change one the other one will change also
-otherArray = array5;
-otherArray.push(6);
+//otherArray = array5;
+//otherArray.push(6);
 
 //Primtive types are stored as the actual value
 //Reference types are stored as address in memory
@@ -194,6 +194,10 @@ console.log(genderedAnimals[1][0]);
 //You can access the elements using square brackets
 
 let fruits = ["apple", "orange", "banana"];
+console.log(fruits[0]);
+
+console.log(fruits.length);
+
 
 fruits.sort();
 
