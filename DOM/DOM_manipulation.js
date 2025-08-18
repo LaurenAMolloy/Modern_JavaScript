@@ -39,7 +39,7 @@ console.log("it works")
 //We get the dom representation of this element
 //The object that represents this element
 const img = document.getElementById("unicornImage");
-console.log(img)
+//console.log(img)
 const p = document.getElementById("main");
 
 //get elements by tag name
@@ -48,15 +48,15 @@ const p = document.getElementById("main");
 //What is a HTML collection?
 //An array like object that is not an array
 //A type of collection and we can do some array like things
-console.log(document.getElementsByTagName("input"));
-console.log(document.getElementsByTagName("li"));
-console.log(document.getElementsByTagName("p"));
+// console.log(document.getElementsByTagName("input"));
+// console.log(document.getElementsByTagName("li"));
+// console.log(document.getElementsByTagName("p"));
 
 //const inputs = document.querySelectorAll('input[type="text"], input[type="password]');
 const inputs = document.getElementsByTagName("input");
 console.log(inputs)
-console.log("Number of Inputs", inputs.length);
-console.log("First input", inputs[0]);
+//console.log("Number of Inputs", inputs.length);
+//console.log("First input", inputs[0]);
 //We cannot use array methods with these collections
 //We can iterate but it is a light weight structure
 
@@ -64,7 +64,7 @@ for(let input of inputs){
     console.log(input.value);
 }
 
-console.log(inputs[2])
+//console.log(inputs[2])
 
 
 //We can turn it into an array
@@ -106,4 +106,87 @@ const allInputs = document.querySelectorAll("input");
 console.log(allLi, allInputs);
 
 console.log(allLi[0]);
+
+//Selecting h1
+const h1 = document.querySelector("h1");
+
+//We can access the text properties of an element using innertext
+//console.log(document.body.innerText);
+
+//Changing the text of an element using innerText
+//h1.innerText = "I'm Hungry"
+//ul.innerText = "I am a big UL"
+
+//h1.textContent = "I am not hungry"
+
+//p.innerText does NOT know about formatting and may not pick up span or bold tags 
+//p.textContent DOES know about formatting and gives you everything
+
+//innerHTML
+//innerHTML can be used to change elements
+//innerHTML all return strings
+const form = document.querySelector("form");
+console.log(form.innerHTML);
+//This will destroy our form probably not what we want!
+//form.innerHTML = ("vfhdjsbfhjghjk");
+//We don't just set the text here we are creating a bold object
+//There are better ways to add elements!
+//form.innerHTML = "<b>I am a bold tag</b>"
+
+//Updating html, you need to use innerHTML
+//innerText will not do that
+
+//We can get the value from a check box
+console.log(inputs[2].checked);
+
+//We can also get the values from a range slider
+console.log(inputs[3].value);
+
+//We have another propertiy we can access which is .placholder
+
+inputs[1].placeholder = "Please enter your password"
+
+//We can also select attributes such as href
+//class, alt, src, href are all attributes
+//We can access the attributes on any object in the DOM
+const a = document.querySelector("a");
+//a.href
+
+const image = document.querySelector("img");
+//image.src
+
+//Get attributes or set attributes
+const range = document.querySelector('input[type="range"]');
+//range.getAttribute('max');
+//range.getAttribute('min');
+//range.getAttribute('type');
+
+range.setAttribute('min', '-500');
+range.setAttribute('type', 'radio');
+
+//Accessing Parent or Child Elements
+const firstLi = document.querySelector("li")
+//Look for property parentElement
+console.log(firstLi);
+
+//We can access the children too
+console.log(ul.children);
+
+//We can access siblings using
+console.log(firstLi.nextElementSibling);
+
+//Using properties on multiple elements
+//How do we do that?
+
+const allLis = document.querySelectorAll("li");
+
+for(let i = 0; i < allLis.length; i++){
+    console.log(allLis[i].innerText);
+    allLis[i].innerText = "Let your sparkle shine";
+}
+
+for(let li of allLis){
+    li.innerHTML = "Let your sparkle <b>Shine</b>"
+}
+
 
