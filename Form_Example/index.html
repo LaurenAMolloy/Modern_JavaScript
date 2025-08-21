@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <section class="formSection">
+        <h1 class="h1">Property Request Form</h1>
+        <form class="myForm">
+            <label for="firstName">first name</label>
+            <input type="text" id="firstName" placeholder="First Name" name="firstName">
+            <input type="text" id="lastName" placeholder="Last Name" name="lastName">
+            <input type="email" id="email" placeholder="example@yourmail.com" name="email" email="autocomplete">
+            <select name="property" id="property-select">
+                <option value="">--Please choose an option--</option>
+                <option value="buy">Buy</option>
+                <option value="cat">Rent</option>
+            </select>
+            <p></p>
+            <fieldset>
+                <legend>Number of Bedrooms</legend>
+                <div>
+                    <input type="radio" id="1" name="bedroom" value="1">
+                    <label for="1">1</label>
+                </div>
+                <div>
+                    <input type="radio" id="2" name="bedroom" value="2">
+                    <label for="2">2</label>
+                </div>
+                <div>
+                    <input type="radio" id="3" name="bedroom" value="3">
+                    <label for="3">3</label>
+                </div>
+                <div>
+                    <input type="radio" id="4" name="bedroom" value="4">
+                    <label for="4">4</label>
+                </div>
+                <div>
+                    <input type="radio" id="5+" name="bedroom" value="5+">
+                    <label for="5+">5+</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <p></p>
+                <legend>Property Features</legend>
+                <div>
+                    <input type="checkbox" id="furnished" name="furnished">
+                    <label for="furnished">Furnished</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="unfurnished" name="unfurnished">
+                    <label for="unfurnished">Unfurnished</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="garden" name="garden">
+                    <label for="garden">Garden</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="pool" name="pool">
+                    <label for="pool">Pool</label>
+                </div>
+            </fieldset>
+            <input class="mySubmit" type="submit">
+        </form>
+    </section>
+    <!-- maniplulating classes-->
+    <section id="todoList">
+        <h2>First things to do after moving into your new home</h2>
+        <ul id="todos">
+            <li class="todo">Take meter readings <button>x</button></li>
+            <li class="todo special">Find the fuse box and water valve <button>x</button></li>
+            <li class="todo">Check your bin day <button>x</button></li>
+            <li class="todo">Say hi to your neighbours <button>x</button></li>
+            <li class="todo">Tell everyone your change of address <button>x</button></li>
+            <li class="todo">Set up broadband <button>x</button></li>
+            <li class="todo">Get insured <button>x</button></li>
+            <li class="todo">Set a new budget <button>x</button></li>
+        </ul>
+    </section>
+
+
+</body>
+
+</html>

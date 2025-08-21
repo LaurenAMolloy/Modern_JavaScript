@@ -28,11 +28,12 @@
 // DOM Manipulation
 // import './lessons/checkbox.js';
 // import './lessons/counter.js';
-import './DOM/DOM_manipulation.js'
+//import './DOM/DOM_manipulation.js'
 
 // Miscellaneous
 // import './lessons/misc.js';
 //'./lessons/active_recall.js';
+
 
 // ========================
 // Example of importing data files

@@ -193,13 +193,13 @@ console.log(genderedAnimals[1][0]);
 //Arrays are index based and always start at 0
 //You can access the elements using square brackets
 
-let fruits = ["apple", "orange", "banana"];
-console.log(fruits[0]);
+//let fruits = ["apple", "orange", "banana"];
+//console.log(fruits[0]);
 
-console.log(fruits.length);
+//console.log(fruits.length);
 
 
-fruits.sort();
+//fruits.sort();
 
 // for(let i = fruits.length - 1; i >= 0; i--){
 //     console.log(fruits[i])
@@ -210,21 +210,28 @@ fruits.sort();
 // }
 
 
-console.log(fruits[0]);
-console.log(fruits[1]);
-console.log(fruits[2]);
+// console.log(fruits[0]);
+// console.log(fruits[1]);
+// console.log(fruits[2]);
 //This will result in undefined since there is no element as index 3
-console.log(fruits[3]);
+//console.log(fruits[3]);
 
-fruits[0] = "pineapple";
-fruits[1] = "coconut";
+//fruits[0] = "pineapple";
+//fruits[1] = "coconut";
+
+//fruits = []
+
+let fruits = ["apple", "orange", "banana"];
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]); // ❌ This skips "apple" and prints "undefined" at the end
+}
 
 //add at the end
 fruits.push("kiwi");
-//remove from the end
-fruits.pop("mango");
 //Add to the start
 fruits.unshift("watermelon");
+//remove from the end
+fruits.pop("mango");
 //Remove from the start
 fruits.shift();
 
@@ -233,4 +240,16 @@ console.log("Number of fruits in this array is", numOfFruits);
 
 let index = fruits.indexOf("coconut");
 console.log("Index of coconut is",index);
+
+
+const cart = {
+  apple: 2,
+  banana: 0,
+  orange: 5,
+  mango: 3
+};
+
+const totalCart = Object.entries(cart).reduce((acc, [key, value]) => acc + 1, 0);
+
+console.log(totalCart);
 

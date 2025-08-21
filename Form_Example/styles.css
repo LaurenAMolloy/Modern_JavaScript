@@ -1,0 +1,156 @@
+:root {
+    --white: #FFFFFF;
+    --deep-blue: #4F52FF;
+    --soft-blue: #7D97F4;
+    --pale-blue: #E9EFFD;
+    --royal-blue: #4042E2;
+    --coral-red: #FE7062;
+    --sky-blue: #91B3FA;
+    --light-coral: #FF7569;
+    --lavender-blue: #C0D1FC;
+    --ice-blue: #E8EEFE;
+
+    /* Light theme defaults */
+    --bg-color: var(--pale-blue);
+    --text-color: var(--royal-blue);
+    --form-bg: var(--lavender-blue);
+    --button-bg: var(--deep-blue);
+    --button-border: var(--soft-blue);
+    --button-hover: var(--coral-red);
+    --list-bg: var(--soft-blue);
+    --done-color: var(--light-coral);
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.h1 {
+    text-align: center;
+    color: var(--deep-blue);
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.myForm {
+    background-color: var(--form-bg);
+    padding: 2rem .5rem;
+    border-radius: 2rem;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.myForm label {
+    display: block;
+    text-align: left;
+    width: 70%;
+    font-size: .8rem;
+    color: var(--text-color);
+}
+
+div {
+    display: flex;
+}
+
+input:not([type="radio"]),
+select,
+fieldset {
+    width: 70%;
+    margin-top: .2rem;
+    border: 1px solid var(--soft-blue);
+    border-radius: 8px;
+    padding: .3rem;
+    background: var(--white);
+    color: var(--royal-blue);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--deep-blue);
+}
+
+.mySubmit {
+    background-color: var(--button-bg);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: var(--button-border) 1px solid;
+    margin-top: 1rem;
+    width: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mySubmit:hover {
+    background-color: var(--button-hover);
+    border: var(--royal-blue);
+}
+
+.imgSize {
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    border-radius: 4rem;
+    background-color: var(--ice-blue);
+}
+
+#todoList {
+    background-color: var(--list-bg);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--text-color);
+}
+
+.done {
+    color: var(--done-color);
+    text-decoration: line-through;
+    opacity: 70%;
+}
+
+/* 🌙 Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a2e;
+        --text-color: var(--ice-blue);
+        --form-bg: #2a2a4b;
+        --button-bg: var(--coral-red);
+        --button-border: var(--lavender-blue);
+        --button-hover: var(--deep-blue);
+        --list-bg: #2f2f55;
+        --done-color: var(--sky-blue);
+    }
+
+    input:not([type="radio"]),
+    select,
+    fieldset {
+        background: #2a2a4b;
+        color: var(--ice-blue);
+        border: 1px solid var(--lavender-blue);
+    }
+
+    h1 {
+        color: var(--coral-red);
+    }
+
+    .imgSize {
+        background-color: #2f2f55;
+    }
+}
