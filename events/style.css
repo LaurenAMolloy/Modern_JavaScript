@@ -1,3 +1,7 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .catchMe {
     position: absolute;
     padding: .5rem 2rem;
@@ -20,4 +24,22 @@ h2 {
 .box {
     width: 100px;
     height: 100px;
+}
+
+#blueBoxes {
+    margin-top: 3rem;
+}
+
+.blueBox {
+    width: 100px;
+    height: 100px;
+}
+
+.blueBoxContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#keyevents {
+    margin-top: 2rem;
 }

@@ -106,13 +106,94 @@ document.body.addEventListener('keypress', function(e){
 })
 
 //Array of colors
-//loop over array
-//create a div for each
-//create a click event for each box
-//update h1 based on the color clicked
-//hint use this!!!
+const blueGradient = [
+    "#001f3f", // Navy
+    "#003366", // Dark Blue
+    "#004c99", // Deep Blue
+    "#0066cc", // Strong Blue
+    "#0080ff", // Bright Blue
+    "#3399ff", // Sky Blue
+    "#66b2ff", // Light Blue
+    "#99ccff", // Pale Blue
+    "#cce6ff", // Very Light Blue
+    "#e6f2ff"  // Almost White Blue
+  ];
 
-//make a little video about this :)
+const blueBoxContainer = document.querySelector(".blueBoxContainer");
+
+const colorInfo = function(evt) {
+    //console.log(evt);
+    //console.log(evt.target);
+    const box = evt.target
+    //Improve this code
+    //Check if box.style.backgroundColor is in that array.
+    //If yes → white text, else → navy.
+
+    box.innerText = evt.target.style.backgroundColor;
+    if (box.style.backgroundColor === "rgb(0, 31, 63)" ||
+        box.style.backgroundColor === "rgb(0, 51, 102)" ||
+        box.style.backgroundColor === "rgb(0, 76, 153)") {
+        box.style.color = "white";
+    } else {
+        box.style.color = "navy"; 
+    }
+}
+
+const removeColorInfo = function(evt) {
+    evt.target.innerText = "";
+}
+
+//loop over array
+for(let blue of blueGradient) {
+    //create a div for each
+    const blueBox = document.createElement("div");
+    blueBox.classList.add("blueBox");
+    blueBox.style.backgroundColor = blue
+    //console.log(blueBox);  
+    blueBoxContainer.append(blueBox);
+    //create a click event for each box
+    blueBox.addEventListener("mouseover", colorInfo);
+    blueBox.addEventListener("mouseout", removeColorInfo);
+}
+
+// Key Events 
+// Return counts as a key press
+// Normally we specifically want to listen to a keypress on return or enter
+const input = document.querySelector("#username");
+
+input.addEventListener("keydown", function(e){
+    console.log("KEYDOWN")
+});
+
+input.addEventListener("keyup", function(e){
+    console.log("KEYUP")
+});
+
+input.addEventListener("keypress", function(e){
+    //SHIFT AND T
+    console.log("KEYPRESS");
+});
+
+//For a game you would probably not want keypress
+
+const addItem = document.getElementById("addItem");
+const itemsUl = document.querySelector("#items");
+
+addItem.addEventListener('keydown', function(e){
+    //console.log(e);
+    if(e.key === 'Enter'){
+        //Check for a falsey value
+        if(!this.value)
+        return
+        //add a new item
+        const newItemText = this.value;
+        const newItem = document.createElement('li');
+        newItem.innerText = newItemText;
+        itemsUl.appendChild(newItem);
+        this.value = " ";
+    }
+});
+
 
 
       
