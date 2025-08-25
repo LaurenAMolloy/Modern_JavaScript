@@ -76,14 +76,13 @@ const colors = [
 ];
 
 const h2 = document.querySelector("h2");
-const changeColor = function(evt){
-    //this refers to each div that
-    //console.log(this)
-    //console.log(this.style.backgroundColor);
+
+const changeColor = function(evt) {
     console.log(evt);
     h2.addEventListener('mouseover', function(){
         console.log(this.innerText);
-    })
+    });
+
     //Change the color of h1 to match this div
     //The div that has the event attached
     h2.style.color = this.style.backgroundColor
