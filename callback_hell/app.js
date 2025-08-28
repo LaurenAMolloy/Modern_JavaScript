@@ -119,43 +119,46 @@
 //A prehistoric pattern
 //Used to conduct asynchronous tasks
 
-function getDrinks(){
-    // setTimeout(() => {
-    //     console.log("What would you like to drink?");
-    // }, 1000);
+function getDrinks(callback){
+    setTimeout(() => {
+    console.log("What would you like to drink?");   
+    }, 2000);
+    callback(); 
 }
-function getStarter(){
-    // setTimeout(()=> {
-    //     console.log("Back again...What would you like as a starter?"); 
-    // }, 2000); 
+function getStarter(callback){
+    setTimeout(()=> {
+      console.log("Back again...What would you like as a starter?");   
+    }, 4000); 
+    callback();
 }
-function getMain(){
-    // setTimeout(() => {
-    //    console.log("Here we go again...What would you like as a main?");
-         
-    // }, 3000);
+function getMain(callback){
+    setTimeout(() => {
+     console.log("Here we go again...What would you like as a main?");   
+    }, 6000);
+    callback();
 }
-function getDessert(){
-    // setTimeout(() => {
-    //     console.log("Unbelievable...What would you like as a dessert?"); 
-    // }, 4000);
-}
-
-function thisIsWhy(){
-    // setTimeout(() => {
-    //     console.log("See? By the time dessert shows up, everyone’s annoyed—this is why we invented promises and async/await!");
-    // }, 5000)
+function getDessert(callback){ 
+    setTimeout(() => {
+        console.log("Unbelievable...What would you like as a dessert?"); 
+    }, 8000);  
+    callback(); 
 }
 
-// getDrinks(() => {
-//     getStarter(() => {
-//         getMain(() => {
-//             getDessert(() => {
-//                 thisIsWhy(() => {
+function thisIsWhy(callback){
+    setTimeout(() => {
+    console.log("See? By the time dessert shows up, everyone’s annoyed—this is why we invented promises and async/await!");
+    }, 10000)
+    callback();
+}
 
-//                 }) 
-//             })
-//         })
-//     })
-// })
+getDrinks(() => {
+    getStarter(() => {
+        getMain(() => {
+            getDessert(() => {
+                thisIsWhy(() => {
+                }) 
+            })
+        })
+    })
+})
 
