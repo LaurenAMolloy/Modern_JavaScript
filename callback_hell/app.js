@@ -56,60 +56,106 @@
 //Pour boiling water in the cup
 //Wait 3-4 minutes and enjoy!
 
-function addTea() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
+// function addTea() {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
 
-        const addTea = true;
-        if(addTea) {
-            resolve("You add tea")
-        }
-        else {
-            reject("You have no tea leaves")
-        }
+//         const addTea = true;
+//         if(addTea) {
+//             resolve("You add tea")
+//         }
+//         else {
+//             reject("You have no tea leaves")
+//         }
 
-    }, 1500); 
-    }); 
+//     }, 1500); 
+//     }); 
+// }
+
+// function boilKettle() {
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             const kettleBoiled = true;
+//             if(kettleBoiled) {
+//                 resolve("Kettle boiled")
+//             }
+//             else {
+//                 reject("Kettle is not boiled")
+//             }
+//     }, 2500);
+//     });
+// }
+
+// function addWater() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const waterAdded = true;
+//             if(waterAdded) {
+//                 resolve("Added hot water")
+//             }
+//             else {
+//                 reject("You have not added  hot water")
+//             }
+//     }, 3500);
+//     }); 
+//}
+
+// //We can use promises and we no longer need callback
+// addTea(() => {
+//     boilKettle(() => {
+//         addWater(() => {
+//             console.log("Enjoy your cuppa!")
+//         });
+//     });
+// });
+
+// addTea().then(value => {console.log(value); return boilKettle()})
+//         .then(value => {console.log(value); return addWater()})
+//         .then(value => {console.log(value); console.log("Enjoy your cuppa!")})
+//         .catch(error => console.log(error));
+
+
+//What is callback hell?  
+//A prehistoric pattern
+//Used to conduct asynchronous tasks
+
+function getDrinks(){
+    // setTimeout(() => {
+    //     console.log("What would you like to drink?");
+    // }, 1000);
+}
+function getStarter(){
+    // setTimeout(()=> {
+    //     console.log("Back again...What would you like as a starter?"); 
+    // }, 2000); 
+}
+function getMain(){
+    // setTimeout(() => {
+    //    console.log("Here we go again...What would you like as a main?");
+         
+    // }, 3000);
+}
+function getDessert(){
+    // setTimeout(() => {
+    //     console.log("Unbelievable...What would you like as a dessert?"); 
+    // }, 4000);
 }
 
-function boilKettle() {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            const kettleBoiled = true;
-            if(kettleBoiled) {
-                resolve("Kettle boiled")
-            }
-            else {
-                reject("Kettle is not boiled")
-            }
-    }, 2500);
-    });
+function thisIsWhy(){
+    // setTimeout(() => {
+    //     console.log("See? By the time dessert shows up, everyone’s annoyed—this is why we invented promises and async/await!");
+    // }, 5000)
 }
 
-function addWater() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const waterAdded = true;
-            if(waterAdded) {
-                resolve("Added hot water")
-            }
-            else {
-                reject("You have not added  hot water")
-            }
-    }, 3500);
-    }); 
-}
+// getDrinks(() => {
+//     getStarter(() => {
+//         getMain(() => {
+//             getDessert(() => {
+//                 thisIsWhy(() => {
 
-//We can use promises and we no longer need callback
-addTea(() => {
-    boilKettle(() => {
-        addWater(() => {
-            console.log("Enjoy your cuppa!")
-        });
-    });
-});
+//                 }) 
+//             })
+//         })
+//     })
+// })
 
-addTea().then(value => {console.log(value); return boilKettle()})
-        .then(value => {console.log(value); return addWater()})
-        .then(value => {console.log(value); console.log("Enjoy your cuppa!")})
-        .catch(error => console.log(error));
