@@ -156,7 +156,7 @@ async function getParalelPoke(){
 getParalelPoke();
 
 //Sequence is slower that paralel!
-//Light Show!
+//Light Show! 
 
 
 
