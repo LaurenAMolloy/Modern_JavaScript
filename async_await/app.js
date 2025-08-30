@@ -158,6 +158,39 @@ getParalelPoke();
 //Sequence is slower that paralel!
 //Light Show! 
 
+function changeBody(color, delay){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            document.body.style.backgroundColor = color;
+            resolve(console.log("Color Change"));
+        }, delay);
+    });
+}
+
+// async function lightShow(){
+       //parallel
+//     await changeBody('teal', 1000);
+//     await changeBody('pink', 1000);
+//     await changeBody('indigo', 1000);
+//     await changeBody('violet', 1000);
+// };
+
+async function lightShow(){
+    //This is running in paralel
+    const promise1 = changeBody('teal', 1000);
+    const promise2 = changeBody('indigo', 1000);
+    const promise3 = changeBody('violet', 1000);
+    const promise4 = changeBody('pink', 1000);
+    //It is better to send the request and wait afterwards
+    //This is much quicker
+    const results = Promise.all([promise1, promise2, promise3, promise4]);
+    console.log(results);
+};
+
+lightShow();
+
+//Refactoring 
+
 
 
 
