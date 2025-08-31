@@ -1,36 +1,50 @@
-//What is asyncronous code?
-//What is call back hell?
+//Promises
 
 const redLight = document.querySelector(".redLight");
 const orangeLight = document.querySelector(".orangeLight");
 const greenLight = document.querySelector(".greenLight");
 
-function redLightOn(callback){
+function redLightOn(){
+    return new Promise((resolve, reject) => {
     setTimeout(() => {
-        greenLight.style.backgroundColor = "rgb(76, 74, 74)";
-        redLight.style.backgroundColor = "red";
-        callback();
-    }, 1000); 
+            greenLight.style.backgroundColor = "rgb(76, 74, 74)";
+            redLight.style.backgroundColor = "red";
+            resolve();
+        }, 1000); 
+    }) 
 }
-function orangeLightOn(callback){
-    setTimeout(() => {
+
+function orangeLightOn(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
         redLight.style.backgroundColor = "rgb(76, 74, 74)";
         orangeLight.style.backgroundColor = "orange";
-        callback();
+        resolve();
     }, 1000);
+    })
+    
 }
-function greenLightOn(callback){
-    setTimeout(() => {
+
+function greenLightOn(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
         orangeLight.style.backgroundColor = "rgb(76, 74, 74)";
         greenLight.style.backgroundColor = "green";
+        resolve()
     }, 1000);
-    callback();
+    })
+    
 }
 
 //Pyramid of Doom!
-redLightOn(() => {
-    orangeLightOn(() => {
-        greenLightOn(() => {
-        });
-    });
-});
+// redLightOn(() => {
+//     orangeLightOn(() => {
+//         greenLightOn(() => {
+//         });
+//     });
+// });
+
+redLightOn()
+.then(orangeLightOn)
+.then(greenLightOn)
+
