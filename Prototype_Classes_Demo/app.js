@@ -13,6 +13,7 @@ const randomBtn = document.querySelector("#random");
 //Constructor creates a blue print
 //A mama object!
 //That all the others are cut from
+//Why is this so cool?
 
 class Color {
     //a new object is created
@@ -28,9 +29,10 @@ class Color {
 
   //Methods for color class
   lighter(){
-    if (this.r < 255) this.r++;
-    if (this.g < 255) this.g++;
-    if (this.b < 255) this.b++
+    const increaseBy = 10
+    if (this.r < 255) this.r ++;
+    if (this.g < 255) this.g ++;
+    if (this.b < 255) this.b ++;
   }
   darker(){
     if (this.r > 0) this.r--;
@@ -44,8 +46,46 @@ class Color {
   rgbString() {
     return `rgb(${this.r}, ${this.g}, ${this.b})`
   }
+  randomColor(){
+    const randRed = Math.floor(Math.random() * 255) + 1;
+    const randBlue = Math.floor(Math.random() * 255) + 1;
+    const randGreen = Math.floor(Math.random() * 255) + 1;
+    this.r = randRed;
+    this.g = randBlue;
+    this.b = randGreen;
+    this.name = "random";
+  }
 } 
 
 //This creates a new instance of the class color
 const redBg = new Color(255, 67, 89, "tomato");
+const fushiaBg = new Color(255, 199, 255, "fuchsia");
 //console.log(redBg.rgbString())
+let currentColor = fushiaBg;
+
+//Event listeners
+lighterBtn.addEventListener("click", (() => {
+    console.log("click");
+    currentColor.lighter();
+    background.style.backgroundColor = currentColor.rgbString();
+    console.log(currentColor.rgbString());
+}));
+
+darkerBtn.addEventListener("click", (() => {
+    console.log("click");
+    currentColor.darker();
+    background.style.backgroundColor = currentColor.rgbString();
+    console.log(currentColor.rgbString());
+}));
+
+randomBtn.addEventListener("click", function() {
+    //console.log("click")
+    currentColor.randomColor();
+    background.style.backgroundColor = currentColor.rgbString();
+    console.log(currentColor);
+});
+
+colorPicker.addEventListener("change", function(e) {
+    console.log(e.target.value);
+});
+
