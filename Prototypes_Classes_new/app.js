@@ -184,6 +184,9 @@ class Colors {
         this.g = g;
         this.b = b;
         this.name = name
+        //Call this whenever the object/instance is made
+        //Tags the new properties onto the instance
+        this.calcHSL()
     }
     //This is a method on the color but not on the instances
     //We can group everything together
@@ -208,6 +211,20 @@ class Colors {
 			'#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
 		);
 	}
+    hsl(){
+        const { h, s, l } = this;
+        return `hsl(${h}, ${s}%, ${l}%)`
+    }
+    fullSaturation(){
+        const{ h, l } = this;
+        return `hsl(${h}, 100%, ${l}%)`
+
+    }
+    opposite(){
+        const { h, s, l } = this;
+        const newHue = (h + 180) % 360;
+        return `hsl(${h}, ${s}%, ${l}%)`
+    }
     calcHSL() {
 		let { r, g, b } = this;
 		// Make r, g, and b fractions of 1
@@ -255,11 +272,35 @@ class Colors {
 
 const red = new Colors(255, 67, 89, "tomato");
 const white = new Colors(255, 255, 255, "white");
+const orange = new Colors(230, 126, 34, "carrot");
+//Another Example of Classes
+//ES6 Feature
+//Better than traditional constructor functions
 
-//More practice with colors
-//Hue
-//Saturation
-//Lightness
+//Class is a blue print
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
 
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: £${this.price.toFixed()}`)
+    }
 
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax)
+    }
+}
 
+const salesTax = 0.05;
+
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Pants", 22.50);
+const product3 = new Product("Socks", 2.50);
+
+product1.displayProduct();
+
+const total = product1.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
